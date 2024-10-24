@@ -21,15 +21,12 @@ version: '3'
 
 services:
   qbittorrent:
-    build: 
-      context: .
-      dockerfile: DockerfileEE
     image: rogunt/qbittorrentee:latest
     container_name: qbittorrent
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
+      - TZ=Asia/Shanghai
       - WEBUI_PORT=8080
       - TORRENTING_PORT=6881
     volumes:
@@ -48,7 +45,7 @@ docker run -d \
   --name qbittorrentee \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Etc/UTC \
+  -e TZ==Asia/Shanghai \
   -e WEBUI_PORT=8080 \
   -e TORRENTING_PORT=6881 \
   -p 8080:8080 \
