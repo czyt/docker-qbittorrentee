@@ -2,9 +2,9 @@ name: docker images cicd
 # 触发器设置
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 # 项目任务，任务之间可以并行调度
 jobs:
