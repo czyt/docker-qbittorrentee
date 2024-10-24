@@ -42,3 +42,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 .jenkins-external
+
+
+# VS Code
+.vscode
+
+# files that testing
+qb

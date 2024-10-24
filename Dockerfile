@@ -1,6 +1,20 @@
 # syntax=docker/dockerfile:1
 
 FROM ghcr.io/linuxserver/unrar:latest AS unrar
+FROM lsiobase/alpine:3.20 AS builder
+
+LABEL maintainer="Rogunt"
+
+WORKDIR /qbittorrent
+
+COPY install.sh /qbittorrent/
+
+RUN apk add --no-cache ca-certificates curl jq
+
+RUN cd /qbittorrent \
+  && chmod a+x install.sh \
+	&& bash install.sh
+  
 
 FROM ghcr.io/linuxserver/baseimage-alpine:edge
 
@@ -17,6 +31,8 @@ ENV HOME="/config" \
 XDG_CONFIG_HOME="/config" \
 XDG_DATA_HOME="/config"
 
+COPY --from=builder /qbittorrent/qbittorrent-nox /usr/bin/qbittorrent-nox
+
 # install runtime packages and qbitorrent-cli
 RUN \
   echo "**** install packages ****" && \
@@ -26,12 +42,6 @@ RUN \
     p7zip \
     python3 \
     qt6-qtbase-sqlite && \
-  if [ -z ${QBITTORRENT_VERSION+x} ]; then \
-    QBITTORRENT_VERSION=$(curl -sL "http://dl-cdn.alpinelinux.org/alpine/edge/community/x86_64/APKINDEX.tar.gz" | tar -xz -C /tmp \
-    && awk '/^P:qbittorrent-nox$/,/V:/' /tmp/APKINDEX | sed -n 2p | sed 's/^V://'); \
-  fi && \
-  apk add -U --upgrade --no-cache \
-    qbittorrent-nox==${QBITTORRENT_VERSION} && \
   echo "***** install qbitorrent-cli ****" && \
   mkdir /qbt && \
   if [ -z ${QBT_CLI_VERSION+x} ]; then \
