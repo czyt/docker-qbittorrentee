@@ -72,8 +72,8 @@ docker compose up -d
 
 # 鸣谢
 
-https://github.com/qbittorrent/qBittorrent
-https://github.com/c0re100/qBittorrent-Enhanced-Edition
-https://github.com/ngosang/trackerslist
-https://github.com/linuxserver/docker-qbittorrent
-https://github.com/SuperNG6/Docker-qBittorrent-Enhanced-Edition
+https://github.com/qbittorrent/qBittorrent  
+https://github.com/c0re100/qBittorrent-Enhanced-Edition  
+https://github.com/ngosang/trackerslist  
+https://github.com/linuxserver/docker-qbittorrent  
+https://github.com/SuperNG6/Docker-qBittorrent-Enhanced-Edition  
