@@ -5,6 +5,10 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * 1'
+  
 
 # 项目任务，任务之间可以并行调度
 jobs:
