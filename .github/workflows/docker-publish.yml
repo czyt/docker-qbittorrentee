@@ -35,7 +35,7 @@ jobs:
     - name: Release version
       id: release_version
       run: |
-        app_version=$(curl -sL "https://api.github.com/repos/c0re100/qBittorrent-Enhanced-Edition/releases/latest" | jq -r '. | .tag_name ' | sed 's/^release-//')
+        app_version=$(curl -sL "https://api.github.com/repos/czyt/qBittorrent-Enhanced-Edition/releases/latest" | jq -r '. | .tag_name ' | sed 's/^release-//')
         echo "app_version=$app_version" >> $GITHUB_ENV
     # 开始构建镜像
     - name: Build and push
