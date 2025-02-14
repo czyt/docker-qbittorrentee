@@ -4,6 +4,7 @@
 
 这是一个 [qBittorrent Enhanced Edition](https://github.com/c0re100/qBittorrent-Enhanced-Edition) 的 Docker 镜像。
 Fork自 [linuxserver/docker-qbittorrent](https://github.com/linuxserver/docker-qbittorrent)，并使用了 [SuperNG6/Docker-qBittorrent-Enhanced-Edition](https://github.com/SuperNG6/Docker-qBittorrent-Enhanced-Edition) 的部分代码。在此感谢上述开源工作者的无私付出。
+> Web UI 登录信息 账号 `admin` 密码设置为 `adminadmin`
 
 aarch64 架构的代码未经测试。
 
